@@ -7,7 +7,7 @@ const featuredContent = [
   {
     id: 1,
     title: 'The Players Almanac',
-    description: 'Connecting gamers',
+    description: 'Connecting gamers for high class reviews',
     link: 'www.theplayersalmanac.com'
   },
   {
@@ -40,7 +40,7 @@ function ContentTile({ title, description, link }) {
 function Header() {
   return (
     <header className="py-12 text-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to my mind</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-4">welcome to my digital mind</h1>
     </header>
   );
 }
@@ -70,7 +70,7 @@ function Navigation() {
 function FeaturedContent() {
   return (
     <section className="py-10 px-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">What I'm Working On</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">works in the kitchen</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {featuredContent.map((item) => (
           <ContentTile 
@@ -89,12 +89,12 @@ function FeaturedContent() {
 function AboutPreview() {
   return (
     <section className="py-10 px-4 bg-amber-50">
-      <h2 className="text-2xl font-bold mb-4 text-center">About Me Snippet</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">quick blurb</h2>
       <p className="text-gray-700 max-w-2xl mx-auto text-center mb-6">
-        [Placeholder for a quick bio, timeline snippet, or interesting fact about the person behind the site. This section gives visitors a glimpse and encourages them to visit the full 'About' page.]
+        i am a gamer, writer, techy, nerd and most importantly a person. i believe your voice is the most powerful thing you have so this is my attempt to use it.
       </p>
       <div className="text-center">
-        <a href="/about" className="text-blue-600 hover:underline">Meet The Man Behind The Site...</a>
+        <a href="/about" className="text-blue-600 hover:underline">meet the man behind the site...</a>
       </div>
     </section>
   );
@@ -108,10 +108,10 @@ function Footer() {
         <div className="flex justify-between items-center flex-wrap">
           <div>
             <a href="#" className="text-blue-300 hover:underline mr-4">Bluesky</a>
-            <a href="/contact" className="text-blue-300 hover:underline">Contact (Placeholder)</a>
+            <a href="/contact" className="text-blue-300 hover:underline">contact (not yet)</a>
           </div>
           <div>
-            <p>© {new Date().getFullYear()} Your Name/Handle</p>
+            <p>© {new Date().getFullYear()} @adrielmaas</p>
           </div>
         </div>
       </div>
