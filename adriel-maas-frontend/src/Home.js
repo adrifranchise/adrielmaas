@@ -7,19 +7,19 @@ const featuredContent = [
   {
     id: 1,
     title: 'The Players Almanac',
-    description: 'Exploring insights and strategies...',
-    link: '#'
+    description: 'Connecting gamers',
+    link: 'www.theplayersalmanac.com'
   },
   {
     id: 2,
     title: 'The Thought Mosaic',
-    description: 'Connecting disparate ideas...',
-    link: '#'
+    description: 'what makes a person? their heart or their brain?',
+    link: 'www.thethoughtmosaic.com'
   },
   {
     id: 3,
-    title: 'Placeholder Project',
-    description: 'Another thing I\'m working on...',
+    title: 'coming soon...',
+    description: 'coming soon',
     link: '#'
   },
 ];
@@ -48,9 +48,9 @@ function Header() {
 // --- Navigation Component ---
 function Navigation() {
   const navItems = [
-    { name: 'Ramblings', path: '/ramblings' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'The Man Behind The Site', path: '/about' },
+    { name: 'ramblings', path: '/ramblings' },
+    { name: 'projects', path: '/projects' },
+    { name: 'the man behind the site', path: '/about' },
   ];
   
   return (

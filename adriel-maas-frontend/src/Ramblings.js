@@ -47,7 +47,6 @@ function PostView({ post, onBack }) {
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       
       <div className="prose max-w-none text-gray-700">
-        {/* Render content - in a real app, you might use a markdown renderer */}
         <p>{post.content}</p>
       </div>
     </div>
@@ -80,24 +79,24 @@ function Ramblings() {
   const dummyPosts = [
     {
       id: 1,
-      title: "The Art of Clean Code",
+      title: "who are you?",
       date: "2025-04-01",
-      excerpt: "Exploring principles and practices that lead to maintainable and elegant code.",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl."
+      excerpt: "TBD",
+      content: "TBD
     },
     {
       id: 2,
-      title: "React Hooks: A Mental Model",
+      title: "TBD",
       date: "2025-03-15",
-      excerpt: "A conceptual framework for understanding React Hooks and their practical applications.",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl."
+      excerpt: "TBD",
+      content: "TBD"
     },
     {
       id: 3,
-      title: "The Future of Web Development",
+      title: "TBD",
       date: "2025-02-20",
-      excerpt: "Exploring emerging technologies and trends shaping the future of web development.",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl. Nullam euismod, nisi vel tincidunt iaculis, nisl nunc aliquam lorem, eget efficitur nisl nunc eu nisl."
+      excerpt: "TBD",
+      content: "TBD"
     }
   ];
 
@@ -112,7 +111,6 @@ function Ramblings() {
     const post = findPostById(id);
     if (post) {
       setSelectedPost(post);
-      // In a real app with React Router, you'd change the URL here
       window.scrollTo(0, 0);
     }
   };
@@ -120,14 +118,13 @@ function Ramblings() {
   // Go back to list view
   const handleBackToList = () => {
     setSelectedPost(null);
-    // In a real app with React Router, you'd change the URL here
   };
 
   return (
     <Layout>
       <div className="py-10 px-4 max-w-4xl mx-auto">
         {!selectedPost && (
-          <h1 className="text-3xl font-bold mb-8 text-center">Ramblings</h1>
+          <h1 className="text-3xl font-bold mb-8 text-center">ramblings</h1>
         )}
         
         {loading && (
