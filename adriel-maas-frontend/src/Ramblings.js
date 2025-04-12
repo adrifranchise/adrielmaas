@@ -82,7 +82,7 @@ function Ramblings() {
       title: "who are you?",
       date: "2025-04-01",
       excerpt: "TBD",
-      content: "TBD
+      content: "TBD"
     },
     {
       id: 2,

@@ -8,13 +8,13 @@ const featuredContent = [
     id: 1,
     title: 'The Players Almanac',
     description: 'Connecting gamers for a reliable review community',
-    link: 'www.theplayersalmanac.com'
+    link: 'tbd'
   },
   {
     id: 2,
     title: 'The Thought Mosaic',
     description: 'classic heart v brain... what makes a person?'
-    link: 'www.thoughtmosaic.com'
+    link: 'tbd'
   },
   {
     id: 3,
