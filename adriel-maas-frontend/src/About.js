@@ -13,8 +13,8 @@ const featuredContent = [
   {
     id: 2,
     title: 'The Thought Mosaic',
-    description: 'classic heart v brain... what makes a person?'
-    link: 'tbd'
+    description: 'classic heart v brain... what makes a person?',
+    link: 'tbd',
   },
   {
     id: 3,
