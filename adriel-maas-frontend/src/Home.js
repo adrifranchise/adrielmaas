@@ -1,8 +1,5 @@
-// src/Home.js (or wherever your file is)
-// Make sure necessary React imports are present
 import React, { useState, useEffect, useRef } from 'react';
-// Make sure necessary CSS is imported (e.g., index.css or App.css for cursor)
-// import './index.css';
+import './index.css';
 
 // --- Color Palette Roles ---
 // Night: '#0D0A0B' (base background) -> bg-night
