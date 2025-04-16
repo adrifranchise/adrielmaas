@@ -91,7 +91,7 @@ function AboutPreview() {
     <section className="py-10 px-4 bg-amber-50">
       <h2 className="text-2xl font-bold mb-4 text-center">quick blurb</h2>
       <p className="text-gray-700 max-w-2xl mx-auto text-center mb-6">
-        i am a gamer, writer, techy, nerd and most importantly a person. i believe your voice is the most powerful thing you have so this is my attempt to use it.
+        i am a gamer, writer, techy, nerd and most importantly an empathetic human being. i believe your voice is the most powerful thing you have so this is my attempt to use it.
       </p>
       <div className="text-center">
         <a href="/about" className="text-blue-600 hover:underline">meet the man behind the site...</a>
@@ -108,7 +108,7 @@ function Footer() {
         <div className="flex justify-between items-center flex-wrap">
           <div>
             <a href="#" className="text-blue-300 hover:underline mr-4">Bluesky</a>
-            <a href="/contact" className="text-blue-300 hover:underline">contact (not yet)</a>
+            <a href="/contact" className="text-blue-300 hover:underline">@adrielmaas</a>
           </div>
           <div>
             <p>© {new Date().getFullYear()} @adrielmaas</p>
