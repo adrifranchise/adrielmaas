@@ -7,9 +7,29 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Courier Prime', monospace; /* Font already set globally here */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Add additional global styles here */
+
+/* === Typing Animation Cursor Styles === */
+.typing-cursor {
+  display: inline-block; /* Keeps it on the same line */
+  margin-left: 2px;    /* Small space after text */
+  opacity: 1;
+  /* font-weight: bold; */ /* Tailwind's font-bold on the h1 should handle this */
+  animation: blink 0.7s infinite;
+}
+
+/* Blinking animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Ensure root elements allow full height for min-h-screen */
+html, body, #root { /* Adjust #root if your main mount point ID is different */
+  height: 100%;
+}

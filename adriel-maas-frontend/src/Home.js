@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+// Make sure to create and import a CSS file if using the CSS cursor method
+// import './Home.css'; // <-- UNCOMMENT if using separate CSS file
 
-// --- Placeholder Data ---
-// Updated based on your input. Replace descriptions and links.
-// In a real app, this would come from your Python backend API.
 const featuredContent = [
   {
     id: 1,
     title: 'The Players Almanac',
     description: 'Connecting gamers for high class reviews',
-    link: 'www.theplayersalmanac.com'
+    link: 'https://www.theplayersalmanac.com'
   },
   {
     id: 2,
     title: 'The Thought Mosaic',
     description: 'what makes a person? their heart or their brain?',
-    link: 'www.thethoughtmosaic.com'
+    link: 'https://www.thethoughtmosaic.com'
   },
   {
     id: 3,
@@ -25,25 +24,74 @@ const featuredContent = [
 ];
 
 // --- Reusable Tile Component ---
-// Displays title, description, and a link for featured content
 function ContentTile({ title, description, link }) {
+  // Ensure link has protocol for external links
+  const absoluteLink = link.startsWith('http://') || link.startsWith('https://') || link.startsWith('#') || link.startsWith('/')
+    ? link
+    : `https://${link}`;
+
   return (
     <div className="bg-white p-4 rounded shadow-md hover:shadow-lg transition">
       <h3 className="text-lg font-bold mb-2">{title}</h3>
       <p className="text-gray-700 mb-3">{description}</p>
-      <a href={link} className="text-blue-600 hover:underline">Learn More →</a>
+      {/* Use target="_blank" for external links */}
+      <a
+        href={absoluteLink}
+        className="text-blue-600 hover:underline"
+        target={link.startsWith('/') || link.startsWith('#') ? '_self' : '_blank'}
+        rel={link.startsWith('/') || link.startsWith('#') ? '' : 'noopener noreferrer'}
+      >
+        Learn More →
+      </a>
     </div>
   );
 }
 
-// --- Header Component ---
+
 function Header() {
+  const [text, setText] = useState('');
+  const fullText = "welcome to my digital mind";
+  const index = useRef(0);
+  const typingSpeed = 100; // Adjust speed as needed (milliseconds)
+  const cursorRef = useRef(null); // Ref for the cursor span
+
+  useEffect(() => {
+    index.current = 0;
+    setText('');
+    if (cursorRef.current) {
+         cursorRef.current.style.display = 'inline-block'; // Ensure cursor is visible initially
+    }
+
+    const timerId = setInterval(() => {
+      if (index.current < fullText.length) {
+        setText((prevText) => prevText + fullText.charAt(index.current));
+        index.current += 1;
+      } else {
+        clearInterval(timerId); // Stop typing
+        // Optional: Hide cursor when done typing
+        if (cursorRef.current) {
+          cursorRef.current.style.display = 'none';
+        }
+      }
+    }, typingSpeed);
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, [fullText, typingSpeed]); // Dependencies
+
   return (
     <header className="py-12 text-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">welcome to my digital mind</h1>
+       {/* Added min-h-[3rem] or similar based on text-4xl line height to prevent layout shift */}
+      <h1 className="text-4xl font-bold text-gray-800 mb-4 min-h-[3rem]">
+        {text}
+        {/* Add ref to cursor span */}
+        <span ref={cursorRef} className="typing-cursor">|</span>
+      </h1>
     </header>
   );
 }
+
 
 // --- Navigation Component ---
 function Navigation() {
@@ -52,12 +100,13 @@ function Navigation() {
     { name: 'projects', path: '/projects' },
     { name: 'the man behind the site', path: '/about' },
   ];
-  
+
   return (
     <nav className="bg-gray-800 text-white p-4">
       <ul className="flex space-x-6 justify-center">
         {navItems.map((item) => (
           <li key={item.name}>
+            {/* Ideally use Link from react-router-dom if using routing */}
             <a href={item.path} className="hover:text-blue-300 transition">{item.name}</a>
           </li>
         ))}
@@ -71,9 +120,9 @@ function FeaturedContent() {
   return (
     <section className="py-10 px-4">
       <h2 className="text-2xl font-bold mb-6 text-center">works in the kitchen</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"> {/* Added max-width and centering */}
         {featuredContent.map((item) => (
-          <ContentTile 
+          <ContentTile
             key={item.id}
             title={item.title}
             description={item.description}
@@ -105,12 +154,14 @@ function Footer() {
   return (
     <footer className="bg-gray-700 text-white py-6 px-4">
       <div className="container mx-auto">
-        <div className="flex justify-between items-center flex-wrap">
-          <div>
-            <a href="#" className="text-blue-300 hover:underline mr-4">Bluesky</a>
+        <div className="flex justify-between items-center flex-wrap gap-4"> {/* Added gap for wrapping */}
+          <div className="flex gap-4"> {/* Grouped links */}
+             {/* Make sure Bluesky link is correct */}
+            <a href="https://bsky.app/profile/YOUR_BLUESKY_HANDLE.bsky.social" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline">Bluesky</a>
+            {/* Link to contact page or email/social */}
             <a href="/contact" className="text-blue-300 hover:underline">@adrielmaas</a>
           </div>
-          <div>
+          <div className="text-right"> {/* Align copyright */}
             <p>© {new Date().getFullYear()} @adrielmaas</p>
           </div>
         </div>
@@ -121,21 +172,28 @@ function Footer() {
 
 // --- Main Home Component ---
 export default function Home() {
+  // Effect for loading the font
   useEffect(() => {
     const link = document.createElement('link');
     link.href = "https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
-    
+
+    // Cleanup function to remove the link when the component unmounts
     return () => {
-      document.head.removeChild(link);
+      // Check if the link is still in the head before trying to remove it
+      const existingLink = document.querySelector(`link[href="${link.href}"]`);
+      if (existingLink) {
+          document.head.removeChild(existingLink);
+      }
     };
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
-    <div className="font-mono bg-amber-50 min-h-screen flex flex-col">
+    // Using Courier Prime from the loaded font
+    <div className="font-['Courier_Prime',_monospace] bg-amber-50 min-h-screen flex flex-col">
       <Navigation />
-      <Header />
+      <Header /> {/* Header now contains the animation logic */}
       <main className="flex-grow">
         <FeaturedContent />
         <AboutPreview />
@@ -144,3 +202,24 @@ export default function Home() {
     </div>
   );
 }
+
+// --- Add this CSS to your global CSS file (e.g., index.css, App.css) ---
+/*
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  opacity: 1;
+  animation: blink 0.7s infinite;
+  font-weight: bold; // Match h1 weight if needed
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+// Ensure your body/html allow full height for min-h-screen
+html, body, #root {
+  height: 100%;
+}
+*/
