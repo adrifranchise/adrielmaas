@@ -50,7 +50,7 @@ function ContentTile({ title, description, link }) {
 
 function Header() {
   const [text, setText] = useState('');
-  const fullText = "welcome to my digital mind";
+  const fullText = "weelcome to my digital mind";
   const index = useRef(0);
   const typingSpeed = 100; // Adjust speed as needed (milliseconds)
   const cursorRef = useRef(null); // Ref for the cursor span
@@ -156,13 +156,13 @@ function Footer() {
       <div className="container mx-auto">
         <div className="flex justify-between items-center flex-wrap gap-4"> {/* Added gap for wrapping */}
           <div className="flex gap-4"> {/* Grouped links */}
-             {/* Make sure Bluesky link is correct */}
-            <a href="https://bsky.app/profile/YOUR_BLUESKY_HANDLE.bsky.social" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline">Bluesky</a>
+             { }
+            <a href="https://bsky.app/profile/adrielmaas.com" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline">Bluesky</a>
             {/* Link to contact page or email/social */}
             <a href="/contact" className="text-blue-300 hover:underline">@adrielmaas</a>
           </div>
           <div className="text-right"> {/* Align copyright */}
-            <p>© {new Date().getFullYear()} @adrielmaas</p>
+            <p>© {new Date().getFullYear()} adrielmaas.com</p>
           </div>
         </div>
       </div>
@@ -203,23 +203,3 @@ export default function Home() {
   );
 }
 
-// --- Add this CSS to your global CSS file (e.g., index.css, App.css) ---
-/*
-.typing-cursor {
-  display: inline-block;
-  margin-left: 2px;
-  opacity: 1;
-  animation: blink 0.7s infinite;
-  font-weight: bold; // Match h1 weight if needed
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-// Ensure your body/html allow full height for min-h-screen
-html, body, #root {
-  height: 100%;
-}
-*/

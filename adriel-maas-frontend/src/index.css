@@ -7,7 +7,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Courier Prime', monospace; /* Font already set globally here */
+  font-family: 'Courier Prime', monospace; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,6 +30,6 @@ html, body {
 }
 
 /* Ensure root elements allow full height for min-h-screen */
-html, body, #root { /* Adjust #root if your main mount point ID is different */
+html, body, #root { 
   height: 100%;
 }
