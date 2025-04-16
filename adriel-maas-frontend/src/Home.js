@@ -60,7 +60,7 @@ function ContentTile({ title, description, link }) {
 // --- Header Component (with Typing Animation) ---
 function Header() {
   const [text, setText] = useState('');
-  const fullText = "welcome to my digital mind";
+  const fullText = "weelcome to my digital mind";
   const index = useRef(0);
   const typingSpeed = 100;
   const cursorRef = useRef(null);
