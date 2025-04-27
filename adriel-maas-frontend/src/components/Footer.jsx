@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex gap-4">
           <a href="mailto:you@adrielmaas.com" className="hover:text-phosphor-green">contact</a>
           <a href="https://github.com/adrifranchise" target="_blank" rel="noopener noreferrer" className="hover:text-phosphor-green">GitHub</a>
-          <a href="https://bsky.app/profile/adrielmaas.com" target="_blank" rel="noopener noreferrer" className="hover:text-phosphor-green">Bluesky</a>
+          <a href="https://bsky.app/profile/adriel.bsky.social" target="_blank" rel="noopener noreferrer" className="hover:text-phosphor-green">Bluesky</a>
           <span className="hover:text-phosphor-green cursor-default">Now Playing</span>
         </div>
         <div>

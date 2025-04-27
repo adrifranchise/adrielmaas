@@ -1,20 +1,24 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Ensure this path covers your component files
+    "./src/**/*.{js,jsx,ts,tsx}", // scan your React files
   ],
   theme: {
+    screens: {
+      sm: '640px',  // nav → hamburger
+      md: '768px',  // two-col grids
+      lg: '1024px',
+    },
     extend: {
-      // Add your colors inside this 'colors' object
       colors: {
-        'night': '#0D0A0B',           // Role: base background
-        'non-photo-blue': '#ACDDE7', // Role: soft contrast text, links
-        'slate-blue': '#725AC1',       // Role: headers, nav, buttons
-        'phosphor-green': '#39FF14',   // Role: accents, code blocks, hover glows
-        'mountbatten-pink': '#9A7AA0', // Role: subtle backgrounds, card borders
+        night: '#0D0A0B',            // base background
+        'non-photo-blue': '#ACDDE7', // soft contrast text, links
+        'slate-blue': '#725AC1',     // headers, nav, buttons
+        'phosphor-green': '#39FF14', // accents, hover glows
+        'mountbatten-pink': '#9A7AA0',// subtle backgrounds, card borders
       },
-      // You might have other 'extend' sections like fontFamily, etc. Keep them if needed.
     },
   },
   plugins: [],
 }
+
